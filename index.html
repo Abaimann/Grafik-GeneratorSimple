@@ -44,19 +44,23 @@
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--c-border);
-            padding: 1rem 2rem;
+            padding: 0.85rem 1.75rem;
             position: sticky;
             top: 0;
             z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .brand-wrap {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.85rem;
+            min-width: 0;
+            flex: 1;
         }
 
         .brand-avatar-box {
@@ -88,20 +92,31 @@
         }
 
         .brand-text h1 {
-            font-size: 1.18rem;
+            font-size: 1.15rem;
             font-weight: 700;
             letter-spacing: -0.3px;
             color: var(--c-white);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
         }
 
         .brand-text p {
-            font-size: 0.78rem;
-            color: #a3a3a3;
+            font-size: 0.75rem;
+            color: var(--c-gray-light);
             font-weight: 400;
             margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
         }
 
         .badge-mono {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 0.35rem 0.8rem;
             border-radius: 9999px;
             font-size: 0.72rem;
@@ -110,7 +125,12 @@
             border: 1px solid var(--c-border-light);
             background: var(--c-gray-dark);
             color: var(--c-white);
+            white-space: nowrap;
+            flex-shrink: 0;
+            line-height: 1;
         }
+        .badge-desktop { display: inline; }
+        .badge-mobile { display: none; }
 
         /* Main Grid */
         main {
@@ -152,12 +172,18 @@
         }
 
         .card-header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--c-border);
+            padding: 0.85rem 1.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.1rem;
-            padding-bottom: 0.65rem;
-            border-bottom: 1px solid var(--c-border);
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .card-title {
@@ -166,6 +192,9 @@
             color: var(--c-white);
             text-transform: uppercase;
             letter-spacing: 0.6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Forms */
@@ -241,7 +270,7 @@
 
         /* Table Input */
         .table-responsive {
-            max-height: 240px;
+            max-height: 285px;
             overflow-y: auto;
             border: 1px solid var(--c-border);
             border-radius: var(--radius-sm);
@@ -307,6 +336,7 @@
             transition: all 0.2s;
             border: none;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .btn-block {
@@ -475,6 +505,116 @@
             opacity: 1;
             transform: translateY(0);
         }
+    
+        /* Comprehensive Mobile Responsiveness */
+        @media (max-width: 640px) {
+            header {
+                padding: 0.65rem 0.9rem;
+                gap: 0.5rem;
+            }
+
+            .brand-wrap {
+                gap: 0.6rem;
+            }
+
+            .brand-avatar-box {
+                width: 38px;
+                height: 38px;
+            }
+
+            .brand-avatar {
+                border-radius: 9px;
+                border-width: 1.5px;
+            }
+
+            .brand-text h1 {
+                font-size: 0.96rem;
+            }
+
+            .brand-text p {
+                font-size: 0.68rem;
+            }
+
+            .badge-desktop {
+                display: none;
+            }
+
+            .badge-mobile {
+                display: inline;
+            }
+
+            .badge-mono {
+                font-size: 0.65rem;
+                padding: 0.28rem 0.55rem;
+                letter-spacing: 0.3px;
+            }
+
+            main {
+                padding: 0.75rem;
+                gap: 1rem;
+            }
+
+            .card-mono {
+                padding: 1rem;
+            }
+
+            .card-title {
+                font-size: 0.78rem;
+                letter-spacing: 0.4px;
+            }
+
+            .actions-toolbar {
+                padding: 0.85rem 1rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.65rem;
+            }
+
+            .actions-toolbar .toolbar-group {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            .actions-toolbar .btn {
+                flex: 1;
+                font-size: 0.82rem;
+                padding: 0.65rem 0.5rem;
+            }
+
+            .chart-display-card {
+                padding: 0.85rem 0.5rem;
+                min-height: 420px;
+            }
+
+            .canvas-container {
+                height: 380px;
+            }
+
+            footer {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .footer-left {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .brand-text p {
+                display: none;
+            }
+            .brand-text h1 {
+                font-size: 0.88rem;
+            }
+            .badge-mono {
+                font-size: 0.6rem;
+                padding: 0.22rem 0.45rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -487,11 +627,11 @@
             </div>
             <div class="brand-text">
                 <h1>Abaimannn Studio</h1>
-                <p>Diagram Generator Pribadi Milik Abaimannn</p>
+                <p>Diagram Generator Pribadi</p>
             </div>
         </div>
-        <div>
-            <span class="badge-mono">MONOCHROME EDITION</span>
+        <div class="header-badge-wrap">
+            <span class="badge-mono"><span class="badge-desktop">MONOCHROME EDITION</span><span class="badge-mobile">MONOCHROME</span></span>
         </div>
     </header>
 
@@ -619,9 +759,10 @@
                         <label>Jarak Interval Angka (Step)</label>
                         <input type="number" id="inpStepY" value="2" step="any" placeholder="Misal: 1, 2, 5" oninput="updateChart()">
                     </div>
-                    <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
-                        <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--c-white); font-size: 0.78rem; height: 38px;">
-                            <input type="checkbox" id="chkZero" onchange="toggleZeroBaseline()"> Mulai dari Nol (0)
+                    <div class="form-group">
+                        <label>Skala Bawah Nol</label>
+                        <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--c-white); font-size: 0.78rem; padding: 0.65rem 0.5rem; background: var(--c-black); border: 1px solid var(--c-border); border-radius: var(--radius-sm); height: 38px;">
+                            <input type="checkbox" id="chkZero" onchange="toggleZeroBaseline()"> Mulai dari 0
                         </label>
                     </div>
                 </div>
@@ -680,7 +821,7 @@
                     <div class="form-group">
                         <label>Ukuran Font Angka</label>
                         <select id="selValFontSize" onchange="updateChart()">
-                            <option value="13" selected>Sedang (13px Tebal)</option>
+                            <option value="13" selected>Sedang (13px)</option>
                             <option value="11">Kecil (11px)</option>
                             <option value="15">Besar (15px)</option>
                         </select>
